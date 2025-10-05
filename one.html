@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Illustrake - Performance Marketing Agency for D2C Brands">
+    <title>Illustrake - Performance Marketing Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00C389;
+            --secondary: #009F72;
+            --accent: #FFD14A;
+            --text-dark: #1A1A1A;
+            --text-light: #666666;
+            --bg-white: #FFFFFF;
+            --bg-light: #FAFAFA;
+            --bg-footer: #F8F8F8;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: var(--bg-white);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-images {
+            position: relative;
+            height: 500px;
+        }
+
+        .image-card {
+            position: absolute;
+            background: #f5f5f5;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-card:nth-child(1) {
+            width: 280px;
+            height: 350px;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            transform: rotate(-5deg);
+        }
+
+        .image-card:nth-child(2) {
+            width: 250px;
+            height: 300px;
+            top: 50px;
+            right: 80px;
+            z-index: 2;
+            transform: rotate(8deg);
+        }
+
+        .image-card:nth-child(3) {
+            width: 200px;
+            height: 280px;
+            bottom: 20px;
+            right: 0;
+            z-index: 1;
+            transform: rotate(-3deg);
+        }
+
+        /* Growth Section */
+        .growth-section {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .growth-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .growth-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-mockup {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: #e8f9f3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .learn-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .learn-more:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        /* Trusted Brands */
+        .trusted-brands {
+            padding: 80px 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .trusted-brands h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .brand-logo {
+            height: 60px;
+            background: #ddd;
+            border-radius: 8px;
+        }
+
+        /* Performance Banner */
+        .performance-banner {
+            background: var(--primary);
+            padding: 60px 0 0;
+            text-align: center;
+        }
+
+        .performance-banner h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .performance-banner p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .industries-strip {
+            background: #1A1A1A;
+            padding: 32px 0;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .industry-item {
+            color: white;
+            text-align: center;
+        }
+
+        .industry-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        /* Free Audit */
+        .free-audit {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .audit-card {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), #333;
+            border-radius: 16px;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .audit-card h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        /* Digital Advertising */
+        .digital-advertising {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .advertising-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .advertising-text h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .advertising-text p {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .chart-mockup {
+            background: linear-gradient(135deg, #FFF9E6, #FFE999);
+            border-radius: 16px;
+            padding: 40px;
+            aspect-ratio: 1;
+        }
+
+        /* Bright Ideas */
+        .bright-ideas {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .ideas-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .ideas-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .ideas-list {
+            list-style: none;
+        }
+
+        .ideas-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 32px;
+        }
+
+        .ideas-visual {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 16px;
+            height: 400px;
+        }
+
+        /* Build Online Presence */
+        .build-presence {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 100px 0;
+        }
+
+        .presence-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .presence-image {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            aspect-ratio: 4/3;
+        }
+
+        .presence-text {
+            color: white;
+        }
+
+        .presence-text h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .presence-text p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .client-avatars {
+            display: flex;
+            gap: -12px;
+            margin-bottom: 32px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: #f5f5f5;
+        }
+
+        /* Partnership */
+        .partnership {
+            padding: 100px 0;
+            background: var(--bg-white);
+            text-align: center;
+        }
+
+        .partnership h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .partner-logo {
+            height: 80px;
+            background: #f5f5f5;
+            border-radius: 12px;
+        }
+
+        .roi-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .roi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .roi-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .roi-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Schedule Meeting */
+        .schedule-meeting {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .meeting-card {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), #333;
+            border-radius: 16px;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .meeting-card h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .meeting-card p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-footer);
+            padding: 80px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .newsletter {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .newsletter-input {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-input input {
+            padding: 12px 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e5e5e5;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content,
+            .growth-content,
+            .advertising-content,
+            .ideas-content,
+            .presence-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .stats-grid,
+            .brands-grid,
+            .partners-grid,
+            .roi-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Illustrake</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <button class="btn btn-primary">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Performance Marketing Agency</h1>
+                        <p>Making D2C brands unicorns through phenomenal performance marketing strategies.</p>
+                        <button class="btn btn-primary">Talk To Us</button>
+                    </div>
+                    <div class="hero-images">
+                        <div class="image-card"></div>
+                        <div class="image-card"></div>
+                        <div class="image-card"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="growth-section" id="services">
+            <div class="container">
+                <div class="growth-content">
+                    <div>
+                        <div class="dashboard-mockup"></div>
+                    </div>
+                    <div>
+                        <h2 class="growth-title">We elevate your brand's growth</h2>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">📊</div>
+                                <h3>Performance</h3>
+                                <p>Drive measurable results with data-driven strategies</p>
+                                <a href="#" class="learn-more">Learn More →</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">🔄</div>
+                                <h3>Retention</h3>
+                                <p>Build lasting customer relationships</p>
+                                <a href="#" class="learn-more">Learn More →</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">🛒</div>
+                                <h3>Marketplaces</h3>
+                                <p>Dominate on Amazon, Flipkart & more</p>
+                                <a href="#" class="learn-more">Learn More →</a>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">⚡</div>
+                                <h3>Other Services</h3>
+                                <p>Complete digital marketing solutions</p>
+                                <a href="#" class="learn-more">Learn More →</a>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Get Quote</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trusted-brands">
+            <div class="container">
+                <h2>Trusted by the top 100+ D2C Brands</h2>
+                <div class="brands-grid">
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                    <div class="brand-logo"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="performance-banner">
+            <div class="container">
+                <h2>Our Performance solutions will keep you ahead of the competition</h2>
+                <p>The industries in which we bring expertise in</p>
+            </div>
+            <div class="industries-strip">
+                <div class="industry-item">
+                    <div class="industry-icon">💄</div>
+                    <div>Beauty & Cosmetics</div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🍕</div>
+                    <div>Food & Beverages</div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">👗</div>
+                    <div>Fashion & Apparel</div>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🏠</div>
+                    <div>Real Estate</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="free-audit">
+            <div class="container">
+                <div class="audit-card">
+                    <h2>Get a Free Audit Now.</h2>
+                    <button class="btn btn-primary">Free Audit</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="digital-advertising">
+            <div class="container">
+                <div class="advertising-content">
+                    <div class="advertising-text">
+                        <h2>Leverage the potential of digital advertising</h2>
+                        <p>With over 500+ projects and a track record of generating $10M+ in revenue, we bring unparalleled expertise in performance marketing to help your D2C brand scale exponentially.</p>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h3>$10M+</h3>
+                                <p>Revenue Generated</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>500+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>230%</h3>
+                                <p>Yearly Growth</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100+</h3>
+                                <p>Trusted Brands</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="chart-mockup"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bright-ideas">
+            <div class="container">
+                <div class="ideas-content">
+                    <div>
+                        <h2>Make bright ideas happen.</h2>
+                        <ul class="ideas-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Enhanced Retention
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Rise in Customer Value
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Creating Customer-Centric Brands
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Escalation in Acquisition
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Unique Solutions Approach
+                            </li>
+                        </ul>
+                        <span class="project-badge">500+ Projects</span>
+                    </div>
+                    <div>
+                        <div class="ideas-visual"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-presence">
+            <div class="container">
+                <div class="presence-content">
+                    <div>
+                        <div class="presence-image"></div>
+                    </div>
+                    <div class="presence-text">
+                        <h2>Build an online presence for your business</h2>
+                        <p>Our all-inclusive approach to performance marketing ensures your D2C brand thrives in the competitive digital landscape.</p>
+                        <div class="client-avatars">
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                        </div>
+                        <button class="btn btn-white">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partnership">
+            <div class="container">
+                <h2>We have partnered with the best in the market</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo"></div>
+                    <div class="partner-logo"></div>
+                    <div class="partner-logo"></div>
+                    <div class="partner-logo"></div>
+                </div>
+                <div class="roi-cards">
+                    <div class="roi-card">
+                        <h3>E-commerce Growth</h3>
+                        <div class="roi-value">+145%</div>
+                        <p>ROI Increase</p>
+                    </div>
+                    <div class="roi-card">
+                        <h3>Fashion Brand</h3>
+                        <div class="roi-value">+220%</div>
+                        <p>Revenue Growth</p>
+                    </div>
+                    <div class="roi-card">
+                        <h3>Beauty Brand</h3>
+                        <div class="roi-value">+180%</div>
+                        <p>Customer Acquisition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule-meeting" id="contact">
+            <div class="container">
+                <div class="meeting-card">
+                    <h2>Want to schedule a meeting with our experts?</h2>
+                    <p>Let's talk closer. Curate compelling ideas for your brand.</p>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Illustrake</h3>
+                    <p>Let's Build Momentum Around Your Business.</p>
+                    <p>Email: hello@illustrake.com<br>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Performance</a></li>
+                        <li><a href="#">Retention</a></li>
+                        <li><a href="#">Marketplaces</a></li>
+                        <li><a href="#">Other Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="newsletter">
+                <div class="newsletter-input">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Illustrake. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Disclaimer</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Add animation to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
